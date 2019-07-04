@@ -4,7 +4,10 @@
  * Version: 2.0 alpha, Unminified-NonVariable
  *
  * Author: Sudipto Mondal
+ * Modified: Kyle Nel
  */
+
+/** Original Selection Colours
 
 ::selection {
   color: #ffffff;
@@ -14,6 +17,18 @@
 ::-moz-selection {
   color: #ffffff;
   background: #31bbda;
+}
+
+*/
+
+::selection {
+  color: #ffffff;
+  background: #9586A3;
+}
+
+::-moz-selection {
+  color: #ffffff;
+  background: #9586A3;
 }
 
 body {
@@ -46,7 +61,7 @@ body {
 
 /* LEFT SIDEBAR */
 .chat__chat-queue {
-    background: #52596e;
+    background: #3f465a;
     border-right: 0;
 }
 
