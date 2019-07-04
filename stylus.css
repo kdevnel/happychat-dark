@@ -1,0 +1,1407 @@
+/*
+ * Happychat - Dark Mode
+ * https://happychat.io
+ * Version: 1.0 
+ * Sub-Version: Variable
+ *
+ * Author: Sudipto Mondal
+ */
+
+
+/* ------------------ START COLOR VARIABLES: change theme colors here ------------------ */
+
+:root {
+    /* primary colors */
+    --happychat-primary-bg: #2b303e;
+    --happychat-primary-text: #cae4f5;
+    --happychat-current-chat-bg: #35394b;
+    --happychat-primary-link-color: #6ce8ff;
+    
+    /* status indicators */
+    --happychat-green-available: #63d9b0;
+    --happychat-blue-reserve: #31bbda;
+    --happychat-yellow-transfers: #f3cb47;
+    --happychat-red-unavailable: #f06060;
+    
+    /* status selector dropdown */
+    --happychat-status-dropdown-bg: #6e7c94;
+    --happychat-status-selector-item-hover: #7c89a1;
+    --happychat-status-selector-item-selected: #8698b6;
+    
+    /* login box */
+    --loginbox-bg: #565f78;
+    
+    /* buttons */
+    --button-bg: #b6cedd;
+    --button-border: #849cac;
+    --button-text: #3c6683;
+    --primary-button-bg: #55c9e2;
+    --primary-button-border: #2892a8;
+    
+    /* sidebars */
+    --happychat-sidebar-bg: #52596e;
+    --happychat-left-sidebar-text: #d5e8f1;
+    --happychat-left-sidebar-operator-img-border: #87a6bc;
+    
+    /* modal window */
+    --welcome-modal-window-bg: #4a5474;
+    --modal-overlay: rgba(42, 48, 75, 0.58);
+    --modal-window-dialog: #464d63;
+    --modal-content-border: #717a98;
+    
+    /* preferences modal window */
+    --preferences-window-tab-selected-bg: #92a6be;
+    --preferences-window-tab-selected-text: #24354a;
+    --preferences-window-input-field-bg: #838db0;
+    
+    /* operator capacity indicator */
+    --operator-total-capacity-and-modal-window-close-icon: #ddf1ff;
+    --operator-current-capacity: #87acc6;
+    
+    /* chat message bubbles */
+    --operator-message-bubble: #3d9ec5;
+    --user-message-bubble: #717895;
+    --user-message-bubble-text: rgba(255, 255, 255, 0.56);
+    
+    /* chat note message bubble */
+    --chat-note-bg: #545a71;
+    --chat-note-text: #a6aab8;
+    --chat-note-title-bg: #1cbba4;
+    --chat-note-title-text: #116a5d;
+    
+    /* starrted message icon star color */
+    --chat-message-starred-star: #ffcd45;
+    
+    /* user typing indicator background */
+    --user-typing-indicator-bg: #646b88;
+    
+    /* dotted bottom border text areas on the right sidebar */
+    --easy-select-bg: rgba(255, 255, 255, 0.2);
+    --easy-select-text: rgba(255, 255, 255, 0.65);
+    --easy-select-btm-dash: rgba(0, 0, 0, 0.6);
+    
+    /* add user note link */
+    --add-user-note-link: #38e4cb;
+    
+    /* user note background and fold */
+    --user-note-bg: #1cbba4;
+    --user-note-fold: #10917f;
+    
+    /* user open tickets/error notice background and fold */
+    --user-error-opentickets-notice-bg: #e96c6c;
+    --user-error-opentickets-fold: #bd4d4e;
+    
+    /* active chat textbox background */
+    --active-chat-textbox-bg: #6e748b;
+    
+    /* chat textbox border highlight on focus */
+    --active-chat-textbox-onfocus-highlight: #a6acc7;
+    
+    /* closed chat textbox bavkground and text */
+    --closed-chat-textbox-bg: #4a4e63;
+    --closed-chat-textbox-text: #9b9faf;
+    
+    /* new message notice background */
+    --new-message-notice-bg: #26c396;
+    
+    /* chat send button background */
+    --chat-textbox-send-button-bg: #5eb4cf;
+
+    /* chat list colors on the left sidebar */
+    --active-chat-selected-bg-left-sidebar: #7c8aa2;
+    --chatlist-hover-bg-left-sidebar: #677085;
+
+    /* chat toolbar(the area which has the ALL, BOOKMARKS and NOTES tabs) background */
+    --chat-toolbar-bg: #79809d;
+    
+    /* chat info-area(the area below the ALL, BOOKMARKS and NOTES tabs) background */
+    --chat-infoarea-bg: #656b86;
+
+    /* autocomplete area(the area that appears for "/" commands) */
+    --autocomplete-toolbar-bg: #b8bfd8;
+    --autocomplete-toolbar-text: rgba(0, 0, 0, 0.7);
+    --autocomplete-content-area-bg: #868da6;
+    --autocomplete-content-area-text: #ffffff;
+    --autocomplete-taglist-desc: #6eede6;
+    --autocomplete-item-hover-selected: #48506a;
+    
+    /* chat session seperator line */
+    --chat-session-seperator-border: #747a96;
+    
+    /* text colors of unselected tabs(ALL, BOOKMARKS, NOTES) */
+    --chat-toolbar-tab-text: #c7d0f6;
+    
+    /* infoarea badge background, example: "en" for English chat */
+    --chat-infoarea-badge-bg: #a2abd1;
+    
+    /* right sidebar(user panel) support history count background */
+    --user-panel-collapsible-notification-circle-bg: #42b1c5;
+    
+    /* message sent on closed chat text background */
+    --closed-chat-msg-send-notice-bg: #b3bacf;
+    
+    /* in-chat notices background colors */
+    --chat-notice-tagged: #30afac;
+    --chat-notice-error: #e85a5a;
+    --chat-notice-ended: #e9a546;
+
+    /* in-chat tag suggestions */
+    --tag-suggestions-wrapper-bg: rgba(190, 205, 233, 0.18);
+    --tag-suggestions-title-text: rgba(190, 205, 233, 0.8);
+    --tag-suggestions-tag-item: #30afac;
+    --tag-suggestions-tag-item-hover: #1da29e;
+}
+
+/* ------------------ END COLOR VARIABLES ------------------ */
+
+::selection {
+  color: #ffffff;
+  background: #31bbda;
+}
+
+::-moz-selection {
+  color: #ffffff;
+  background: #31bbda;
+}
+
+body {
+    background: var(--happychat-primary-bg);
+    color: var(--happychat-primary-text);
+}
+
+/* LOGIN BOX */
+.login {
+    background: var(--loginbox-bg);
+    border-radius: 5px;
+}
+
+/* GLOBAL BUTTONS */
+.button, button {
+    background: var(--button-bg);
+    border-color: var(--button-border);
+    color: var(--button-text);
+}
+
+/* PRIMARY BLUE BUTTON */
+.button.is-primary, button.is-primary {
+    background: var(--primary-button-bg);
+    border-color: var(--primary-button-border);
+}
+
+
+/* ------------------ START LEFT SIDEBAR ------------------ */
+
+/* LEFT SIDEBAR */
+.chat__chat-queue {
+    background: var(--happychat-sidebar-bg);
+    border-right: 0;
+}
+
+/* LEFT SIDEBAR - operator status borders: */
+/* └ 1. blue */
+.container__operator-status__reserve .chat__chat-queue {
+    border-left: 8px solid var(--happychat-blue-reserve);
+}
+
+/* └ 2. yellow */
+.container__operator-status__busy .chat__chat-queue {
+    border-left: 8px solid var(--happychat-yellow-transfers);
+}
+
+/* └ 3. red */
+.container__operator-status__unavailable .chat__chat-queue {
+    border-left: 8px solid var(--happychat-red-unavailable);
+}
+
+/* LEFT SIDEBAR - chat status indicator texts */
+.action-bar a, .capacity__stats-item {
+    color: var(--happychat-left-sidebar-text);
+}
+
+/* LEFT SIDEBAR chatlist - chat selected */
+.chat-list__item.is-selected, .chat-list__item.is-selected:hover {
+    background: var(--active-chat-selected-bg-left-sidebar);
+}
+
+/* LEFT SIDEBAR chatlist - chat hover */
+.chat-list__item:hover {
+    background: var(--chatlist-hover-bg-left-sidebar);
+}
+
+/* LEFT SIDEBAR - OPERATOR: status dots */
+/* └ 0. green */
+.operators.operators__available:before {
+    background: var(--happychat-green-available);
+}
+
+/* └ 1. blue */
+.operators.operators__reserve:before {
+    background: var(--happychat-blue-reserve);
+}
+
+/* └ 2. yellow */
+.operators.operators__busy:before {
+    background: var(--happychat-yellow-transfers);
+}
+
+/* └ 3. red */
+.operators.operators__unavailable:before {
+    background: var(--happychat-red-unavailable);
+}
+
+/* LEFT SIDEBAR - OPERATOR: status dots border */
+.operators.operators:before {
+    border: 2px solid var(--happychat-sidebar-bg);
+}
+
+/* LEFT SIDEBAR - OPERATOR: image border */
+.operators img {
+    border: 2.5px solid var(--happychat-left-sidebar-operator-img-border);
+}
+
+/* LEFT SIDEBAR - OPERATOR: total capacity bar */
+.operators__capacity-bar {
+    border-radius: 50px;
+    background: var(--operator-total-capacity-and-modal-window-close-icon);
+}
+
+/* LEFT SIDEBAR - OPERATOR: current capacity bar */
+.operators__capacity {
+    background: var(--operator-current-capacity);
+}
+
+/* LEFT SIDEBAR - HAPPYCHAT CAPACITY STATS BUBBLE */
+.capacity__stats-bubble {
+    padding: 2px 6px;
+}
+
+/* LEFT SIDEBAR - HAPPYCHAT CAPACITY STATS BUBBLE: available */
+.capacity__stats-bubble.available {
+    background-color: var(--happychat-green-available);
+    border: none;
+    color: rgba(0,0,0,0.8);
+}
+
+/* LEFT SIDEBAR - HAPPYCHAT CAPACITY STATS BUBBLE: reserve */
+.capacity__stats-bubble.reserve {
+    background: var(--happychat-blue-reserve);
+    border: none;
+    color: rgba(0,0,0,0.8);
+}
+
+/* ------------------ END LEFT SIDEBAR ------------------ */
+
+
+
+/* ------------------ START MID CHAT AREA ------------------ */
+
+/* MID CHAT AREA: ACTIVE CHAT BACKGROUND */
+.chat__current-chat {
+    background: var(--happychat-current-chat-bg);
+}
+
+/* MID CHAT AREA: OPERATOR CHAT MESSAGE BUBBLE */
+.chat__message .chat__message__text {
+    background: var(--operator-message-bubble);
+}
+
+/* └ OPERATOR CHAT MESSAGE BUBBLE - pointer */
+.chat__message .chat__message__text:after {
+    border-bottom: 12px solid var(--operator-message-bubble);
+}
+
+/* MID CHAT AREA: USER CHAT MESSAGE BUBBLE */
+.chat__message.chat__message__from-user .chat__message__text {
+    background: var(--user-message-bubble);
+    color: var(--user-message-bubble-text);
+}
+
+/* └ USER CHAT MESSAGE BUBBLE - pointer */
+.chat__message.chat__message__from-user .chat__message__text:after {
+    border-bottom: 12px solid var(--user-message-bubble);
+}
+
+/* MID CHAT AREA - STARTED MESSAGE - star color */
+.chat__message .starred {
+    color: var(--chat-message-starred-star);
+}
+
+/* MID CHAT AREA - USER TYPING INDICATOR */
+.chat__message.chat__message__type-event .chat__message__text {
+    background: var(--user-typing-indicator-bg);
+}
+
+/* MID CHAT AREA - ACTIVE CHAT TEXTBOX */
+.chat-actions__current-chat-action-compose {
+    background: var(--active-chat-textbox-bg);
+    border: none;
+}
+
+/* └ ACTIVE CHAT TEXTBOX - border fix */
+.chat__current-chat__actions {
+    background: var(--active-chat-textbox-bg);
+    border-top: none;
+}
+
+/* └ ACTIVE CHAT TEXTBOX - text color */
+.chat__current-chat__actions textarea {
+    color: #ffffff;
+}
+
+/* └ ACTIVE CHAT TEXTBOX - onfocus highlight */
+.chat-actions__current-chat-action-compose>textarea:focus {
+    box-shadow: 0 0 0 2px var(--active-chat-textbox-onfocus-highlight);
+}
+
+/* MID CHAT AREA - CLOSED CHAT TEXTBOX */
+.chat__current-chat__actions.is-closed .chat-actions__current-chat-action-compose textarea::-webkit-input-placeholder, .chat__current-chat__actions textarea::-webkit-input-placeholder {
+    color: var(--closed-chat-textbox-text);
+    font-style: italic;
+}
+
+/* └ CLOSED CHAT TEXTBOX - color */
+.chat__current-chat__actions.is-closed .chat-actions__current-chat-action-compose {
+    background: var(--closed-chat-textbox-bg);
+}
+
+/* └ CLOSED CHAT TEXTBOX - border fix */
+.chat__current-chat__actions.is-closed {
+    background: var(--closed-chat-textbox-bg);
+    border-top: none;
+}
+
+/* MID CHAT AREA - DISCONNECTED CHAT TEXTBOX - border fix */
+.container__socket__is_disconnected .chat__current-chat__actions {
+    background: var(--closed-chat-textbox-bg);
+}
+
+/* MID CHAT AREA - NEW MESSAGE NOTICE */
+.chat-panel__unread-messages-notice {
+    background: var(--new-message-notice-bg);
+    right: auto;
+    padding: 10px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    bottom: 35px;
+    left: 35px;
+    box-shadow: 0px 8px 50px -8px var(--new-message-notice-bg);
+}
+
+/* └ UNREAD MESSAGES NOTICE: arrow icon*/
+.chat-panel__unread-messages-notice:before {
+    content: '▼';
+    margin-right: 8px;
+    margin-left: -5px;
+}
+
+/* MID CHAT AREA - CHAT SEND BUTTON */
+.chat__current-chat__actions button {
+    background: var(--chat-textbox-send-button-bg);
+}
+
+/* MID CHAT AREA - CHAT TOOLBAR */
+.chat-toolbar {
+    background: var(--chat-toolbar-bg);
+    border: none;
+}
+
+/* └ CHAT TOOLBAR - items. EG: ALL, BOOKMARKS, NOTES selected bottom color and text color */
+.chat-toolbar__menu-item.is-selected {
+    color: var(--happychat-primary-link-color);
+    border-color: var(--happychat-primary-link-color);
+}
+
+/* └ CHAT TOOLBAR - items, normal text color*/
+.chat-toolbar__menu-item {
+    color: var(--chat-toolbar-tab-text);
+}
+
+/* MID CHAT AREA - CHAT INFOBAR(below toolbar) */
+.chat-info {
+    background: var(--chat-infoarea-bg);
+    border-bottom: 5px solid var(--happychat-current-chat-bg);
+    box-shadow: none;
+}
+
+/* └ CHAT INFOBAR - link colors */
+.chat-info__details div a {
+    color: var(--happychat-primary-link-color);
+}
+
+/* └ CHAT INFOBAR - opeators indicator */
+.capacity__operators p {
+    color: var(--chat-toolbar-tab-text);
+}
+
+/* └ CHAT INFOBAR - operators border */
+.operators.is-horizontal.operators:before {
+    border-color: var(--autocomplete-content-area-bg);
+}
+
+/* └ CHAT INFOBAR - CHAT GROUP INDICATOR. EG: en, WPcom badge */
+.chat-info__group-badge, .chat-info__locale-badge {
+    background: var(--chat-infoarea-badge-bg);
+    color: var(--autocomplete-content-area-text);
+}
+
+/* MID CHAT AREA - CHAT NOTE */
+.chat__message.chat__message__type-note .chat__message__text {
+    background: var(--chat-note-bg);
+    color: var(--chat-note-text);
+}
+
+/* └ CHAT NOTE - pointer */
+.chat__message.chat__message__type-note .chat__message__text:after {
+    border-bottom: 12px solid var(--chat-note-bg);
+}
+
+/* └ CHAT NOTE - note title */
+.chat__message.chat__message__type-note .chat__message__text:before {
+    content: 'Chat Note:';
+    display: table;
+    font-weight: bold;
+    background: var(--chat-note-title-bg);
+    color: var(--chat-note-title-text);
+    font-size: 13px;
+    padding: 2px 4px 2px 6px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+/* MID CHAT AREA - AUTOCOMPLETE(the area that appears for "/" commands) */
+/* └ AUTOCOMPLETE: title/toolbar */
+.auto-complete__toolbar {
+    background: var(--autocomplete-toolbar-bg);
+    color: var(--autocomplete-toolbar-text);
+    height: 35px;
+    padding: 3px 6px;
+}
+
+/* └ AUTOCOMPLETE: content area below the toolbar */
+.auto-complete {
+    border: none;
+    background: var(--autocomplete-content-area-bg);
+    color: var(--autocomplete-content-area-text);
+}
+
+/* └ AUTOCOMPLETE: tag description text color */
+.auto-complete__list.is-tags-list .auto-complete__item .auto-complete__item-label {
+    color: var(--autocomplete-taglist-desc);
+}
+
+/* └ AUTOCOMPLETE: item hover/selected background */
+.auto-complete__item.is-selected {
+    background: var(--autocomplete-item-hover-selected);
+}
+
+/* └ AUTOCOMPLETE: group title background */
+.auto-complete__group {
+    background: var(--chatlist-hover-bg-left-sidebar); /*#6a7087*/
+    border: none;
+}
+
+/* MID CHAT AREA - CHAT SESSION: links */
+.session__header-links a {
+    color: var(--happychat-primary-link-color);
+}
+
+/* MID CHAT AREA - CHAT SESSION: seperator border */
+.session__header:after {
+    background: var(--chat-session-seperator-border);
+}
+
+/* MID CHAT AREA - message sent on closed chat indicator */
+.chat__message.chat__message__type-message-on-closed .chat__message__text blockquote {
+    background: var(--closed-chat-msg-send-notice-bg);
+}
+
+/* MID CHAT AREA - message from user link colors */
+.chat__message.chat__message__from-user .chat__message__text a, .chat__message.chat__message__type-customer-info .collapsable-section__label {
+    color: var(--happychat-primary-link-color);
+}
+
+/* MID CHAT AREA - chat ended notifier */
+.chat__message.chat__message__type-chat-close .chat__message__text {
+    background: var(--chat-notice-ended);
+}
+
+/* MID CHAT AREA - chat tagged notifier */
+.chat__message.chat__message__type-tagged .chat__message__text {
+    background: var(--chat-notice-tagged);
+}
+
+/* MID CHAT AREA - chat error notifier */
+.chat__message.chat__message__type-error .chat__message__text {
+    background: var(--chat-notice-error);
+}
+
+/* MID CHAT AREA - TAG SUGGESTIONS AREA */
+.tag-suggestions__content {
+    border: none;
+    background: var(--tag-suggestions-wrapper-bg);
+    padding: 12px 0;
+    border-radius: 6px;
+}
+
+/* └ TAG SUGGESTIONS AREA: title */
+.tag-suggestions__title {
+    color: var(--tag-suggestions-title-text);
+}
+
+/* └ TAG SUGGESTIONS AREA: tag item */
+.tag-suggestions__item {
+    background: var(--tag-suggestions-tag-item);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 10px 4px 8px;
+}
+
+/* └ TAG SUGGESTIONS AREA: tag item hover */
+.tag-suggestions__item:hover {
+    background: var(--tag-suggestions-tag-item-hover);
+}
+
+/* ------------------ END MID CHAT AREA ------------------ */
+
+
+
+/* ------------------ START RIGHT SIDEBAR ------------------ */
+
+/* RIGHT SIDEBAR */
+.chat__current-chat-meta {
+    background: var(--happychat-sidebar-bg);
+}
+
+/* RIGHT SIDEBAR - border remove */
+.chat__chat-panel {
+    border: none;
+}
+
+/* RIGHT SIDEBAR - easy selects */
+.easy-select {
+    color: var(--easy-select-text);
+    border-bottom: 2px dashed var(--easy-select-btm-dash);
+    background-color: var(--easy-select-bg);
+    border-radius: 5px;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: upgrades list background */
+.user-upgrades-items__item {
+    background: var(--chat-toolbar-bg); /*#7983a0*/
+    border: none;
+    border-radius: 4px;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: USER PANEL: label text */
+.user-panel-items__item-label {
+    color: var(--chat-toolbar-tab-text); /*#bac7ec*/
+}
+
+/* └ ADD USER NOTE: link color */
+a.user-data-panel__notes__add {
+    color: var(--add-user-note-link);
+}
+
+/* RIGHT SIDEBAR - USER PANEL: ADD USER NOTE: user note */
+.user-data-panel__user-notes__item {
+    background: var(--user-note-bg);
+}
+
+/* └ ADD USER NOTE: fold */
+.user-data-panel__user-notes__item:before {
+    border-color: var(--happychat-sidebar-bg) var(--user-note-fold);
+}
+
+/* RIGHT SIDEBAR - USER PANEL: - activity log */
+.user-log-panel__messages {
+    border: none;
+    background: var(--chat-toolbar-bg); /*#7983a0*/
+    border-radius: 4px;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: support history links */
+.user-data-panel__support-history a {
+    color: var(--happychat-primary-link-color);
+}
+
+/* RIGHT SIDEBAR - USER PANEL: collapsible notification circle */
+.collapsable-section__preview {
+    background: var(--user-panel-collapsible-notification-circle-bg);
+}
+
+/* RIGHT SIDEBAR - USER PANEL: OPENED TICKETS */
+.user-data-panel__user-notes__item.user-data-panel__user-notes__error {
+    background: var(--user-error-opentickets-notice-bg);
+}
+
+/* └ OPENED TICKETS: fold */
+.user-data-panel__user-notes__item.user-data-panel__user-notes__error:before {
+    border-color: var(--happychat-sidebar-bg) var(--user-error-opentickets-fold);
+}
+
+/* RIGHT SIDEBAR - BLOG PANEL: blog title */
+.user-blog-panel__url a {
+    color: var(--happychat-primary-link-color);
+}
+
+/* RIGHT SIDEBAR - BLOG PANEL: blog details */
+.user-panel-items__item-label a, .user-panel-items__item-content a {
+    color: var(--happychat-primary-link-color);
+}
+
+/* ------------------ END RIGHT SIDEBAR ------------------ */
+
+
+
+/* ------------------ START MODAL WINDOW ------------------ */
+
+/* WELCOME MODAL WINDOW */
+.modal__welcome {
+    background: var(--welcome-modal-window-bg);
+}
+
+/* MODAL WINDOW OVERLAY */
+.modal {
+    background: var(--modal-overlay);
+}
+
+/* MODAL WINDOW DIALOG */
+.modal__dialog {
+    background: var(--modal-window-dialog);
+}
+
+/* MODAL WINDOW CLOSE ICON */
+.modal__dialog .modal__header svg {
+    color: var(--operator-total-capacity-and-modal-window-close-icon);
+}
+
+/* MODAL WINDOW KEYBOARD SHORTCUTS */
+.keyboard-shortcuts__list .keyboard-shortcuts__shortcut span, .preferences__tab-bar>div {
+    border: 1px solid var(--modal-content-border);
+}
+
+/* MODAL WINDOW TAB CONTENT BORDERS 1 */
+.preferences__group-settings tbody td, .preferences__locale-settings tbody td, .preferences__locale-settings tbody th, .skills__options-item, .preferences__preference-item-input {
+    border-top: 1px solid var(--modal-content-border);
+}
+
+/* MODAL WINDOW TAB CONTENT BORDERS 2 */
+.preferences__preference-item-input:last-of-type {
+    border-bottom: 1px solid var(--modal-content-border);
+}
+
+/* PREFERENCES WINDOW TAB SELECTED */
+.preferences__tab-bar>div.selected {
+    background: var(--preferences-window-tab-selected-bg);
+    color: var(--preferences-window-tab-selected-text);
+}
+
+/* PREFERENCES WINDOW INPUT FIELDS */
+.preferences__preference-item-input-box, .preferences__preference-input {
+    background: var(--preferences-window-input-field-bg);
+    border: none;
+    color: #fff;
+    outline: none;
+    padding: 5px 8px;
+}
+
+/* STATUS SELECTOR DROPDOWN */
+.modal__welcome .chat__dropdown ul, .chat__dropdown ul {
+    background: var(--happychat-status-dropdown-bg);
+    color: var(--happychat-primary-text);
+    box-shadow: 0px 16px 47px -15px rgba(0, 0, 0, 0.48);
+}
+
+/* └ STATUS SELECTOR - dropdown height */
+.chat__dropdown.chat__dropdown__active ul {
+    max-height: 180px;
+}
+
+/* └ STATUS SELECTOR - dropdown items */
+.chat__dropdown ul li {
+    padding: 6px 10px;
+}
+
+/* └ STATUS SELECTOR - dropdown items hover */
+.chat__dropdown ul li:hover {
+    background: var(--happychat-status-selector-item-hover);
+}
+
+/* └ STATUS SELECTOR - dropdown item selected */
+.chat__dropdown ul li.chat__dropdown__selected {
+    background: var(--happychat-status-selector-item-selected);
+}
+
+/* └ STATUS SELECTOR - dropdown - STATUS DOTS: */
+/*   └ 0. green    */
+.chat__dropdown__status.chat__dropdown__status-available:before {
+    background: var(--happychat-green-available);
+}
+
+/*   └ 1. blue    */
+.chat__dropdown__status.chat__dropdown__status-reserve:before {
+    background: var(--happychat-blue-reserve);
+}
+
+/*   └ 2. yellow    */
+.chat__dropdown__status.chat__dropdown__status-busy:before {
+    background: var(--happychat-yellow-transfers);
+}
+
+/*   └ 3. red    */
+.chat__dropdown__status.chat__dropdown__status-unavailable:before {
+    background: var(--happychat-red-unavailable);
+}
+
+textarea[data-txt_gramm_id="2bc8d354-0cdf-b4fb-dec3-d2960b2f131b"] {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* ------------------ END MODAL WINDOW ------------------ */
+
+
+/* HAPPYCHAT NETWORK STATUS NOTICES */
+.notices__notice-type-warning {
+    background: var(--chat-message-starred-star);
+    color: rgba(0,0,0,0.8);
+    box-shadow: 0px 16px 60px -17px var(--chat-message-starred-star);
+}
+
+/* HAPPYCHAT NETWORK STATUS NOTICES: links */
+.notices__notice-content a {
+    color: rgba(0,0,0,0.5);
+}
+/*
+ * Happychat - Dark Mode
+ * https://happychat.io
+ * Version: 1.0 
+ * Sub-Version: Non-Variable
+ *
+ * Author: Sudipto Mondal
+ */
+
+::selection {
+  color: #ffffff;
+  background: #31bbda;
+}
+
+::-moz-selection {
+  color: #ffffff;
+  background: #31bbda;
+}
+
+body {
+    background: #2b303e;
+    color: #cae4f5;
+}
+
+/* LOGIN BOX */
+.login {
+    background: #565f78;
+    border-radius: 5px;
+}
+
+/* GLOBAL BUTTONS */
+.button, button {
+    background: #b6cedd;
+    border-color: #849cac;
+    color: #3c6683;
+}
+
+/* PRIMARY BLUE BUTTON */
+.button.is-primary, button.is-primary {
+    background: #55c9e2;
+    border-color: #2892a8;
+}
+
+
+/* ------------------ START LEFT SIDEBAR ------------------ */
+
+/* LEFT SIDEBAR */
+.chat__chat-queue {
+    background: #52596e;
+    border-right: 0;
+}
+
+/* LEFT SIDEBAR - operator status borders: */
+/* └ 1. blue */
+.container__operator-status__reserve .chat__chat-queue {
+    border-left: 8px solid #31bbda;
+}
+
+/* └ 2. yellow */
+.container__operator-status__busy .chat__chat-queue {
+    border-left: 8px solid #f3cb47;
+}
+
+/* └ 3. red */
+.container__operator-status__unavailable .chat__chat-queue {
+    border-left: 8px solid #f06060;
+}
+
+/* LEFT SIDEBAR - chat status indicator texts */
+.action-bar a, .capacity__stats-item {
+    color: #d5e8f1;
+}
+
+/* LEFT SIDEBAR chatlist - chat selected */
+.chat-list__item.is-selected, .chat-list__item.is-selected:hover {
+    background: #7c8aa2;
+}
+
+/* LEFT SIDEBAR chatlist - chat hover */
+.chat-list__item:hover {
+    background: #677085;
+}
+
+/* LEFT SIDEBAR - OPERATOR: status dots */
+/* └ 0. green */
+.operators.operators__available:before {
+    background: #63d9b0;
+}
+
+/* └ 1. blue */
+.operators.operators__reserve:before {
+    background: #31bbda;
+}
+
+/* └ 2. yellow */
+.operators.operators__busy:before {
+    background: #f3cb47;
+}
+
+/* └ 3. red */
+.operators.operators__unavailable:before {
+    background: #f06060;
+}
+
+/* LEFT SIDEBAR - OPERATOR: status dots border */
+.operators.operators:before {
+    border: 2px solid #52596e;
+}
+
+/* LEFT SIDEBAR - OPERATOR: image border */
+.operators img {
+    border: 2.5px solid #87a6bc;
+}
+
+/* LEFT SIDEBAR - OPERATOR: total capacity bar */
+.operators__capacity-bar {
+    border-radius: 50px;
+    background: #ddf1ff;
+}
+
+/* LEFT SIDEBAR - OPERATOR: current capacity bar */
+.operators__capacity {
+    background: #87acc6;
+}
+
+/* LEFT SIDEBAR - HAPPYCHAT CAPACITY STATS BUBBLE */
+.capacity__stats-bubble {
+    padding: 2px 6px;
+}
+
+/* LEFT SIDEBAR - HAPPYCHAT CAPACITY STATS BUBBLE: available */
+.capacity__stats-bubble.available {
+    background-color: #63d9b0;
+    border: none;
+    color: rgba(0,0,0,0.8);
+}
+
+/* LEFT SIDEBAR - HAPPYCHAT CAPACITY STATS BUBBLE: reserve */
+.capacity__stats-bubble.reserve {
+    background: #31bbda;
+    border: none;
+    color: rgba(0,0,0,0.8);
+}
+
+/* ------------------ END LEFT SIDEBAR ------------------ */
+
+
+
+/* ------------------ START MID CHAT AREA ------------------ */
+
+/* MID CHAT AREA: ACTIVE CHAT BACKGROUND */
+.chat__current-chat {
+    background: #35394b;
+}
+
+/* MID CHAT AREA: OPERATOR CHAT MESSAGE BUBBLE */
+.chat__message .chat__message__text {
+    background: #3d9ec5;
+}
+
+/* └ OPERATOR CHAT MESSAGE BUBBLE - pointer */
+.chat__message .chat__message__text:after {
+    border-bottom: 12px solid #3d9ec5;
+}
+
+/* MID CHAT AREA: USER CHAT MESSAGE BUBBLE */
+.chat__message.chat__message__from-user .chat__message__text {
+    background: #717895;
+    color: rgba(255, 255, 255, 0.56);
+}
+
+/* └ USER CHAT MESSAGE BUBBLE - pointer */
+.chat__message.chat__message__from-user .chat__message__text:after {
+    border-bottom: 12px solid #717895;
+}
+
+/* MID CHAT AREA - STARTED MESSAGE - star color */
+.chat__message .starred {
+    color: #ffcd45;
+}
+
+/* MID CHAT AREA - USER TYPING INDICATOR */
+.chat__message.chat__message__type-event .chat__message__text {
+    background: #646b88;
+}
+
+/* MID CHAT AREA - ACTIVE CHAT TEXTBOX */
+.chat-actions__current-chat-action-compose {
+    background: #6e748b;
+    border: none;
+}
+
+/* └ ACTIVE CHAT TEXTBOX - border fix */
+.chat__current-chat__actions {
+    background: #6e748b;
+    border-top: none;
+}
+
+/* └ ACTIVE CHAT TEXTBOX - text color */
+.chat__current-chat__actions textarea {
+    color: #ffffff;
+}
+
+/* └ ACTIVE CHAT TEXTBOX - onfocus highlight */
+.chat-actions__current-chat-action-compose>textarea:focus {
+    box-shadow: 0 0 0 2px #a6acc7;
+}
+
+/* MID CHAT AREA - CLOSED CHAT TEXTBOX */
+.chat__current-chat__actions.is-closed .chat-actions__current-chat-action-compose textarea::-webkit-input-placeholder, .chat__current-chat__actions textarea::-webkit-input-placeholder {
+    color: #9b9faf;
+    font-style: italic;
+}
+
+/* └ CLOSED CHAT TEXTBOX - color */
+.chat__current-chat__actions.is-closed .chat-actions__current-chat-action-compose {
+    background: #4a4e63;
+}
+
+/* └ CLOSED CHAT TEXTBOX - border fix */
+.chat__current-chat__actions.is-closed {
+    background: #4a4e63;
+    border-top: none;
+}
+
+/* MID CHAT AREA - DISCONNECTED CHAT TEXTBOX - border fix */
+.container__socket__is_disconnected .chat__current-chat__actions {
+    background: #4a4e63;
+}
+
+/* MID CHAT AREA - NEW MESSAGE NOTICE */
+.chat-panel__unread-messages-notice {
+    background: #26c396;
+    right: auto;
+    padding: 10px 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 8px;
+    bottom: 35px;
+    left: 35px;
+    box-shadow: 0px 8px 50px -8px #26c396;
+}
+
+/* └ UNREAD MESSAGES NOTICE: arrow icon*/
+.chat-panel__unread-messages-notice:before {
+    content: '▼';
+    margin-right: 8px;
+    margin-left: -5px;
+}
+
+/* MID CHAT AREA - CHAT SEND BUTTON */
+.chat__current-chat__actions button {
+    background: #5eb4cf;
+}
+
+/* MID CHAT AREA - CHAT TOOLBAR */
+.chat-toolbar {
+    background: #79809d;
+    border: none;
+}
+
+/* └ CHAT TOOLBAR - items. EG: ALL, BOOKMARKS, NOTES selected bottom color and text color */
+.chat-toolbar__menu-item.is-selected {
+    color: #6ce8ff;
+    border-color: #6ce8ff;
+}
+
+/* └ CHAT TOOLBAR - items, normal text color*/
+.chat-toolbar__menu-item {
+    color: #c7d0f6;
+}
+
+/* MID CHAT AREA - CHAT INFOBAR(below toolbar) */
+.chat-info {
+    background: #656b86;
+    border-bottom: 5px solid #35394b;
+    box-shadow: none;
+}
+
+/* └ CHAT INFOBAR - link colors */
+.chat-info__details div a {
+    color: #6ce8ff;
+}
+
+/* └ CHAT INFOBAR - opeators indicator */
+.capacity__operators p {
+    color: #c7d0f6;
+}
+
+/* └ CHAT INFOBAR - operators border */
+.operators.is-horizontal.operators:before {
+    border-color: #868da6;
+}
+
+/* └ CHAT INFOBAR - CHAT GROUP INDICATOR. EG: en, WPcom badge */
+.chat-info__group-badge, .chat-info__locale-badge {
+    background: #a2abd1;
+    color: #ffffff;
+}
+
+/* MID CHAT AREA - CHAT NOTE */
+.chat__message.chat__message__type-note .chat__message__text {
+    background: #545a71;
+    color: #a6aab8;
+}
+
+/* └ CHAT NOTE - pointer */
+.chat__message.chat__message__type-note .chat__message__text:after {
+    border-bottom: 12px solid #545a71;
+}
+
+/* └ CHAT NOTE - note title */
+.chat__message.chat__message__type-note .chat__message__text:before {
+    content: 'Chat Note:';
+    display: table;
+    font-weight: bold;
+    background: #1cbba4;
+    color: #116a5d;
+    font-size: 13px;
+    padding: 2px 4px 2px 6px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+/* MID CHAT AREA - AUTOCOMPLETE(the area that appears for "/" commands) */
+/* └ AUTOCOMPLETE: title/toolbar */
+.auto-complete__toolbar {
+    background: #b8bfd8;
+    color: rgba(0, 0, 0, 0.7);
+    height: 35px;
+    padding: 3px 6px;
+}
+
+/* └ AUTOCOMPLETE: content area below the toolbar */
+.auto-complete {
+    border: none;
+    background: #868da6;
+    color: #ffffff;
+}
+
+/* └ AUTOCOMPLETE: tag description text color */
+.auto-complete__list.is-tags-list .auto-complete__item .auto-complete__item-label {
+    color: #6eede6;
+}
+
+/* └ AUTOCOMPLETE: item hover/selected background */
+.auto-complete__item.is-selected {
+    background: #48506a;
+}
+
+/* └ AUTOCOMPLETE: group title background */
+.auto-complete__group {
+    background: #677085; /*#6a7087*/
+    border: none;
+}
+
+/* MID CHAT AREA - CHAT SESSION: links */
+.session__header-links a {
+    color: #6ce8ff;
+}
+
+/* MID CHAT AREA - CHAT SESSION: seperator border */
+.session__header:after {
+    background: #747a96;
+}
+
+/* MID CHAT AREA - message sent on closed chat indicator */
+.chat__message.chat__message__type-message-on-closed .chat__message__text blockquote {
+    background: #b3bacf;
+}
+
+/* MID CHAT AREA - message from user link colors */
+.chat__message.chat__message__from-user .chat__message__text a, .chat__message.chat__message__type-customer-info .collapsable-section__label {
+    color: #6ce8ff;
+}
+
+/* MID CHAT AREA - chat ended notifier */
+.chat__message.chat__message__type-chat-close .chat__message__text {
+    background: #e9a546;
+}
+
+/* MID CHAT AREA - chat tagged notifier */
+.chat__message.chat__message__type-tagged .chat__message__text {
+    background: #30afac;
+}
+
+/* MID CHAT AREA - chat error notifier */
+.chat__message.chat__message__type-error .chat__message__text {
+    background: #e85a5a;
+}
+
+/* MID CHAT AREA - TAG SUGGESTIONS AREA */
+.tag-suggestions__content {
+    border: none;
+    background: rgba(190, 205, 233, 0.18);
+    padding: 12px 0;
+    border-radius: 6px;
+}
+
+/* └ TAG SUGGESTIONS AREA: title */
+.tag-suggestions__title {
+    color: rgba(190, 205, 233, 0.8);
+}
+
+/* └ TAG SUGGESTIONS AREA: tag item */
+.tag-suggestions__item {
+    background: #30afac;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 2px 10px 4px 8px;
+}
+
+/* └ TAG SUGGESTIONS AREA: tag item hover */
+.tag-suggestions__item:hover {
+    background: #1da29e;
+}
+
+/* ------------------ END MID CHAT AREA ------------------ */
+
+
+
+/* ------------------ START RIGHT SIDEBAR ------------------ */
+
+/* RIGHT SIDEBAR */
+.chat__current-chat-meta {
+    background: #52596e;
+}
+
+/* RIGHT SIDEBAR - border remove */
+.chat__chat-panel {
+    border: none;
+}
+
+/* RIGHT SIDEBAR - easy selects */
+.easy-select {
+    color: rgba(255, 255, 255, 0.65);
+    border-bottom: 2px dashed rgba(0, 0, 0, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: upgrades list background */
+.user-upgrades-items__item {
+    background: #79809d; /*#7983a0*/
+    border: none;
+    border-radius: 4px;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: USER PANEL: label text */
+.user-panel-items__item-label {
+    color: #c7d0f6; /*#bac7ec*/
+}
+
+/* └ ADD USER NOTE: link color */
+a.user-data-panel__notes__add {
+    color: #38e4cb;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: ADD USER NOTE: user note */
+.user-data-panel__user-notes__item {
+    background: #1cbba4;
+}
+
+/* └ ADD USER NOTE: fold */
+.user-data-panel__user-notes__item:before {
+    border-color: #52596e #10917f;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: - activity log */
+.user-log-panel__messages {
+    border: none;
+    background: #79809d; /*#7983a0*/
+    border-radius: 4px;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: support history links */
+.user-data-panel__support-history a {
+    color: #6ce8ff;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: collapsible notification circle */
+.collapsable-section__preview {
+    background: #42b1c5;
+}
+
+/* RIGHT SIDEBAR - USER PANEL: OPENED TICKETS */
+.user-data-panel__user-notes__item.user-data-panel__user-notes__error {
+    background: #e96c6c;
+}
+
+/* └ OPENED TICKETS: fold */
+.user-data-panel__user-notes__item.user-data-panel__user-notes__error:before {
+    border-color: #52596e #bd4d4e;
+}
+
+/* RIGHT SIDEBAR - BLOG PANEL: blog title */
+.user-blog-panel__url a {
+    color: #6ce8ff;
+}
+
+/* RIGHT SIDEBAR - BLOG PANEL: blog details */
+.user-panel-items__item-label a, .user-panel-items__item-content a {
+    color: #6ce8ff;
+}
+
+/* ------------------ END RIGHT SIDEBAR ------------------ */
+
+
+
+/* ------------------ START MODAL WINDOW ------------------ */
+
+/* WELCOME MODAL WINDOW */
+.modal__welcome {
+    background: #4a5474;
+}
+
+/* MODAL WINDOW OVERLAY */
+.modal {
+    background: rgba(42, 48, 75, 0.58);
+}
+
+/* MODAL WINDOW DIALOG */
+.modal__dialog {
+    background: #464d63;
+}
+
+/* MODAL WINDOW CLOSE ICON */
+.modal__dialog .modal__header svg {
+    color: #ddf1ff;
+}
+
+/* MODAL WINDOW KEYBOARD SHORTCUTS */
+.keyboard-shortcuts__list .keyboard-shortcuts__shortcut span, .preferences__tab-bar>div {
+    border: 1px solid #717a98;
+}
+
+/* MODAL WINDOW TAB CONTENT BORDERS 1 */
+.preferences__group-settings tbody td, .preferences__locale-settings tbody td, .preferences__locale-settings tbody th, .skills__options-item, .preferences__preference-item-input {
+    border-top: 1px solid #717a98;
+}
+
+/* MODAL WINDOW TAB CONTENT BORDERS 2 */
+.preferences__preference-item-input:last-of-type {
+    border-bottom: 1px solid #717a98;
+}
+
+/* PREFERENCES WINDOW TAB SELECTED */
+.preferences__tab-bar>div.selected {
+    background: #92a6be;
+    color: #24354a;
+}
+
+/* PREFERENCES WINDOW INPUT FIELDS */
+.preferences__preference-item-input-box, .preferences__preference-input {
+    background: #838db0;
+    border: none;
+    color: #fff;
+    outline: none;
+    padding: 5px 8px;
+}
+
+/* STATUS SELECTOR DROPDOWN */
+.modal__welcome .chat__dropdown ul, .chat__dropdown ul {
+    background: #6e7c94;
+    color: #cae4f5;
+    box-shadow: 0px 16px 47px -15px rgba(0, 0, 0, 0.48);
+}
+
+/* └ STATUS SELECTOR - dropdown height */
+.chat__dropdown.chat__dropdown__active ul {
+    max-height: 180px;
+}
+
+/* └ STATUS SELECTOR - dropdown items */
+.chat__dropdown ul li {
+    padding: 6px 10px;
+}
+
+/* └ STATUS SELECTOR - dropdown items hover */
+.chat__dropdown ul li:hover {
+    background: #7c89a1;
+}
+
+/* └ STATUS SELECTOR - dropdown item selected */
+.chat__dropdown ul li.chat__dropdown__selected {
+    background: #8698b6;
+}
+
+/* └ STATUS SELECTOR - dropdown - STATUS DOTS: */
+/*   └ 0. green    */
+.chat__dropdown__status.chat__dropdown__status-available:before {
+    background: #63d9b0;
+}
+
+/*   └ 1. blue    */
+.chat__dropdown__status.chat__dropdown__status-reserve:before {
+    background: #31bbda;
+}
+
+/*   └ 2. yellow    */
+.chat__dropdown__status.chat__dropdown__status-busy:before {
+    background: #f3cb47;
+}
+
+/*   └ 3. red    */
+.chat__dropdown__status.chat__dropdown__status-unavailable:before {
+    background: #f06060;
+}
+
+textarea[data-txt_gramm_id="2bc8d354-0cdf-b4fb-dec3-d2960b2f131b"] {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* ------------------ END MODAL WINDOW ------------------ */
+
+
+/* HAPPYCHAT NETWORK STATUS NOTICES */
+.notices__notice-type-warning {
+    background: #ffcd45;
+    color: rgba(0,0,0,0.8);
+    box-shadow: 0px 16px 60px -17px #ffcd45;
+}
+
+/* HAPPYCHAT NETWORK STATUS NOTICES: links */
+.notices__notice-content a {
+    color: rgba(0,0,0,0.5);
+}
